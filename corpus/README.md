@@ -223,18 +223,3 @@ Escaping:       embedded double quotes are doubled ("")
 ```
 
 Textual values such as XML sentences and Russian translations are quoted. Therefore, commas, quotation marks, and punctuation inside sentence text do not change the CSV column structure.
-
-## Source-data policy
-
-Files in `data/vepkar/` are source exports and should be treated as read-only.
-
-```text
-data/vepkar/
-    immutable VepKar source export
-
-results/
-    derived instances, labels, train/dev/test splits,
-    features, predictions, models, diagnostics, and reports
-```
-
-Do not overwrite, edit, or append experiment results to the source data files.
