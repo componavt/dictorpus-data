@@ -113,4 +113,29 @@ semantics/
                           category_id → wdh
 ```
 
+
+## License
+
+Scripts and other source code in this repository are licensed under the
+MIT License. Linguistic datasets in `corpus/`, `dict/`, and `semantics/`,
+including sample data, are licensed under Creative Commons Attribution
+4.0 International (CC BY 4.0).
+
+## Attribution
+
+When redistributing or adapting these data, please credit the VepKar project
+(The Open Corpus of the Veps and Karelian Languages), link to
+https://dictorpus.krc.karelia.ru/ and to the version of this repository used,
+identify the license as CC BY 4.0, and indicate whether you modified the data.
+
+Suggested attribution:
+"VepKar — The Open Corpus of the Veps and Karelian Languages;
+dictorpus-data, version v2026.09; licensed under CC BY 4.0."
+
+## Citation
+
+If you use this dataset in an academic publication, please cite the dataset
+version you used. We also encourage you to cite a relevant VepKar publication
+from https://dictorpus.krc.karelia.ru/en/page/publ.
+
 See the README in each directory for its exact schema, identifiers, and join rules.
