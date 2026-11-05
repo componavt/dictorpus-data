@@ -1,143 +1,36 @@
-id,meaning_id,lemma_id,lemma,lang,pos,meaning_ru,meaning_en,concept_id,category_id
-1,85970,73386,-ena,krl,PART,усилительная частица,,,
-2,77685,66335,-gi,krl,PART,и,also,,
-3,77686,66335,-gi,krl,PART,также,also,,
-4,71804,61135,-go,krl,PART,ли,,,
-5,80294,68543,-h,krl,PART,притяжательная частица 3 л. ед. ч.,,,
-8,85915,73333,-ka,krl,PART,-ка (употребляется для смягчения требования),,,
-14,78337,66923,-kä,krl,PART,и (при отрицании),and (in negative forms),,
-1522,48286,42267,aškel,krl,NOUN,шаг,step,492,B15
-1523,48288,42269,aškele,krl,NOUN,шаг,step,492,B15
-1529,80598,68810,ašti,krl,POSTP,"вплоть, до, по",,,
-1530,26045,22921,aštie,krl,NOUN,"посуда, сосуд",dish; vessel,,
-1531,80600,68812,aštiepol’čča,krl,NOUN,полка для посуды,,,
-1532,55728,49037,aštiet,krl,NOUN,посуда,,1119,B373
-1533,80601,68813,aštievihko,krl,NOUN,мочалка (тряпка для мытья посуды),,,
-1534,76412,65215,aštieškuappi,krl,NOUN,"буфет, сервант, горка (шкаф для посуды)",,,
-1535,55735,49044,aštit,krl,NOUN,посуда,,1119,B373
-1536,52121,45818,aštivo,krl,NOUN,борона,harrow,779,B321
-1537,26046,22922,aštoija,krl,VERB,"боронить, бороновать",,,
-1538,52128,45824,aštova,krl,NOUN,борона,harrow,779,B321
-1539,48273,42255,aštua,krl,VERB,шагать,,491,B15
-1540,2875,2984,aštuo,krl,VERB,"идти, шагать, ходить",to go,491,B15
-1541,36817,2984,aštuo,krl,VERB,"пойти, направляться",,,
-1542,52119,45816,aštuva,krl,NOUN,борона,harrow,779,B321
-1543,80609,68818,aštuvoija,krl,VERB,боронить,harrow,,
-1544,80610,68819,ašuo,krl,VERB,жить ,,,
-1545,55734,49043,aščiet,krl,NOUN,посуда,,1119,B373
-1546,52126,45822,aščivo,krl,NOUN,борона,harrow,779,B321
-1547,48287,42268,aššel,krl,NOUN,шаг,step,492,B15
-1548,80587,68800,aššen,krl,ADV,"даже, только тогда",,,
-1549,70804,60249,aššukšennella,krl,VERB,вышагивать,,,
-1550,80588,68802,aššulla,krl,ADV,пешком,on foot; afoot,,
-1551,80590,68803,aššuntatapa,krl,NOUN,походка,,,
-1552,80592,68805,aššuttua,krl,VERB,учить ходить,,,
-1553,80593,68805,aššuttua,krl,VERB,случать,,,
-1554,26052,22925,ažettua,krl,VERB,"налаживать, насаживать, устанавливать",,,
-1555,49484,22925,ažettua,krl,VERB,успокаивать (о человеке),,566,B17
-1556,55602,22925,ažettua,krl,VERB,строить (отделывать) дом,,1086,B372
-1557,82148,70105,ažeuttua,krl,VERB,"успокаивать, утихомиривать",,,
-1558,51747,45500,ažie,krl,NOUN,дело,"business, work",750,B31
-1559,54009,45500,ažie,krl,NOUN,ружье,,948,B353
-1560,78457,67030,baaba,krl,NOUN,бабушка,grandmother,,
-1561,52339,46028,baapka,krl,NOUN,"суслон, бабка",,796,B322
-1562,80704,68901,baari,krl,NOUN,баp,,,
-1563,80705,68902,baarimieš,krl,NOUN,бармен,,,
-1564,26072,22938,baba,krl,NOUN,бабушка,grandmother; grandma,,
-1565,54310,22938,baba,krl,NOUN,удилище,,960,B353
-1566,43274,37518,babarno,krl,NOUN,малина,raspberry,122,A323
-1567,84380,71959,babazeni,krl,NOUN,бабулечка,,,
-1568,57049,50181,babba,krl,NOUN,бабушка,grandmother; grandma,1237,B412
-1569,49161,43071,babi,krl,NOUN,старуха,,548,B17
-1570,57110,43071,babi,krl,NOUN,бабушка,grandmother; grandma,1237,B412
-1571,57050,50182,babo,krl,NOUN,бабушка,grandmother; grandma,1237,B412
-1572,26073,22939,bahila,krl,NOUN,"бахилы, низкая кожаная обувь с завязками",,,
-1573,81835,69867,baibattua,krl,VERB,"баюкать, убаюкивать ребенка",,,
-1574,83253,70974,bajari,krl,NOUN,барин,nobleman; Lord,,
-1575,83254,70974,bajari,krl,NOUN,"гнойный нарыв, чирей",,,
-1576,26074,22940,bajuttua,krl,VERB,"баюкать, убаюкивать ребенка",,,
-1577,26075,22941,baklažuana,krl,NOUN,баклажан,,,
-1578,80707,68904,bakteri,krl,NOUN,бактерия,,,
-1579,76420,65222,balalaikka,krl,NOUN,балалайка,,,
-1580,80709,68906,baletti,krl,NOUN,балет,,,
-1581,76422,65224,balettikoulu,krl,NOUN,балетная школа,,,
-1582,26076,22942,balkona,krl,NOUN,балкон,balcony,,
-1583,80710,68907,balttilaini,krl,ADJ,балтийский,,,
-1584,57521,50615,baluija,krl,VERB,"играть, забавляться, развлекаться",,1272,B43
-1585,80711,68908,banani,krl,NOUN,банан,,,
-1586,80712,68909,banderolli,krl,NOUN,бандероль,,,
-1587,26077,22943,banka,krl,NOUN,банк,bank,,
-1588,80713,68910,banketti,krl,NOUN,банкет,,,
-1589,50597,44410,banta,krl,NOUN,пуговица,,671,B182
-1590,26078,22944,banuana,krl,NOUN,банан,,,
-1591,52343,46032,bapka,krl,NOUN,"суслон, бабка",,796,B322
-1592,43038,37293,barba,krl,NOUN,ветвь,"branch, bough",94,A321
-1593,46545,40670,barbas,krl,NOUN,палец ноги,,374,B12
-1594,82473,70368,barbaz,krl,NOUN,палец ноги,,374,B12
-1595,46544,40669,barbaš,krl,NOUN,палец ноги,,374,B12
-1596,46153,40294,barda,krl,NOUN,борода,beard,341,B12
-1597,26079,22945,barhatta,krl,NOUN,бархат,,,
-1598,80714,68911,barhattikukka,krl,NOUN,бархатцы,,,
-1599,80715,68912,baritoni,krl,NOUN,баритон,,,
-1600,80716,68913,barreli,krl,NOUN,баррель,,,
-1601,80717,68914,barrikadi,krl,NOUN,баррикада,,,
-1602,44336,38552,barsukke,krl,NOUN,барсук,badger (mammal),193,A412
-1603,80718,68915,basiliikka,krl,NOUN,базилик,,,
-1604,26080,22946,basseina,krl,NOUN,бассейн,,,
-1605,80719,68916,basso,krl,NOUN,бас,,,
-1606,83677,71326,batinkane,krl,NOUN,ботиночки,,,
-1607,79634,67963,baugua,krl,VERB,качаться чему-л. висячему,,,
-1608,53502,47095,bazara,krl,NOUN,молоток,,909,B351
-1609,77081,65776,bazari,krl,NOUN,базар,,,
-1610,51443,45211,beda,krl,NOUN,беда,,730,B22
-1611,55149,48533,bednoi,krl,ADJ,"бедный, неимущий",,1064,B36
-1612,93106,80026,belgijalaini,krl,ADJ,бельгийский,,,
-1613,80721,68918,belgijalaini,krl,NOUN,"бельгиец, бельгийка",,,
-1614,80722,68919,belladonna,krl,NOUN,белладонна,,,
-1615,80723,68920,beluga,krl,NOUN,белуга,,,
-1616,82817,70646,bembeli,krl,NOUN,дуга,arc; curve; bow,842,B331
-1617,82818,70647,bembelö,krl,NOUN,дуга,arc; curve; bow,842,B331
-1618,52796,46475,bembel’,krl,NOUN,дуга,arc; curve; bow,842,B331
-1619,83173,70907,ber’goija,krl,VERB,"угощать, обильно кормить",,,
-1620,26081,22947,ber’oga,krl,NOUN,берег,"bank, waterside, coast",46,A21
-1621,42556,36837,ber’ogaranda,krl,NOUN,берег,"bank, waterside, coast",46,A21
-1622,81254,69383,besednikkä,krl,NOUN,"беседующий, собеседник",,,
-1623,80724,68921,bestselleri,krl,NOUN,бестселлер,,,
-1624,26082,22948,bes’ouda,krl,NOUN,"посиделки, вечорка",,,
-1625,26083,22948,bes’ouda,krl,NOUN,"беседа, собеседование",,,
-1626,26084,22949,bes’ouduija,krl,VERB,беседовать,,,
-1627,51441,45209,beta,krl,NOUN,беда,,730,B22
-1628,80725,68922,betoni,krl,NOUN,бетон,,,
-1629,26085,22950,betonnoi,krl,ADJ,бетонный,,,
-1630,55024,48417,bezmeni,krl,NOUN,безмен,,1052,B36
-1631,26086,22951,bi,krl,PART,бы,,,
-1632,57053,50185,biabo,krl,NOUN,бабушка,grandmother; grandma,1237,B412
-1633,58169,51225,bias,krl,NOUN,черт,devil,1325,B52
-1634,80727,68924,bibliografini,krl,ADJ,библиографический ,,,
-1635,26088,22953,bibl’otekari,krl,NOUN,библиотекарь,,,
-1636,26087,22952,bibl’otekka,krl,NOUN,библиотека,library,,
-1637,77563,66226,bidonane,krl,NOUN,бидончик,,,
-1638,58168,51224,biešša,krl,NOUN,черт,devil,1325,B52
-1639,53720,47298,biibalo,krl,NOUN,ломтик (хлеба),,933,B352
-1640,26089,22954,bilbo,krl,NOUN,сыроежка (гриб),,,
-1641,26090,22955,bilietta,krl,NOUN,билет,,,
-1642,80728,68925,biljardi,krl,NOUN,бильярд,,,
-1643,80729,68926,biologi,krl,NOUN,биолог,,,
-1644,80730,68927,biologija,krl,NOUN,биология,,,
-1645,80731,68928,biologini,krl,ADJ,биологический,,,
-1646,54813,48269,birbi,krl,NOUN,дратва,,1035,B356
-1647,82877,70694,birda,krl,NOUN,бёрдо,,1023,B356
-1648,53048,46697,birkaine,krl,NOUN,ягненок,lamb,864,B331
-1649,26091,22956,bir’a,krl,NOUN,"ягненок, козленок",,,
-1652,77562,66225,bitonane,krl,NOUN,бидончик,,,
-1653,79737,68061,bizbettiä,krl,VERB,быстро и легко бежать мелкими шажками,,,
-1654,79738,68061,bizbettiä,krl,VERB,слегка в наказание стегать прутом,,,
-1655,88684,75837,bladenča,krl,NOUN,младенец,,,
-1656,57972,51036,blahoslovi,krl,VERB,благословлять,,1312,B52
-1657,57969,51033,blahoslovie,krl,VERB,благословлять,,1312,B52
-1669,26093,22958,bluasloven’n’a,krl,NOUN,благословение,,,
-1670,57971,51035,bluaslovie,krl,VERB,благословлять,,1312,B52
-1671,54213,47749,bl’osna,krl,NOUN,блесна,,978,B353
-1672,26094,22959,bl’učča,krl,NOUN,чайное блюдечко,,,
-1673,57051,50183,boabo,krl,NOUN,бабушка,grandmother; grandma,1237,B412
-24238,44545,38753,žuavoronka,krl,NOUN,жаворонок,"lark, skylark",213,A42
+id,meaning_id,lemma_id,meaning_n,lemma,lang,pos,meaning_ru,meaning_en,concept_id,category_id
+1,85970,73386,1,-ena,krl,PART,усилительная частица,,,
+2,77685,66335,1,-gi,krl,PART,и,also,,
+3,77686,66335,2,-gi,krl,PART,также,also,,
+4,71804,61135,1,-go,krl,PART,ли,,,
+5,80294,68543,1,-h,krl,PART,притяжательная частица 3 л. ед. ч.,,,
+6,78652,67202,1,-han,krl,PART,же,,,
+7,78338,66924,1,-hän,krl,PART,же,,,
+8,85915,73333,1,-ka,krl,PART,-ка (употребляется для смягчения требования),,,
+9,77115,65803,1,-ki,krl,PART,и,also,,
+10,77684,65803,2,-ki,krl,PART,также,also,,
+11,80342,68585,1,-kko,krl,PART,-ка,,,
+12,78313,66900,1,-ko,krl,PART,ли,,,
+13,92485,66900,2,-ko,krl,PART,-ка,,,
+14,78337,66923,1,-kä,krl,PART,и (при отрицании),and (in negative forms),,
+1612,48284,42265,1,ašel,krl,NOUN,шаг,step,492,B15
+1613,80564,68779,1,ašema,krl,NOUN,"положение, состояние",,,
+1614,80565,68779,2,ašema,krl,NOUN,"вокзал, станция",,,
+1615,80566,68780,1,ašemašilta,krl,NOUN,перрон,,,
+1616,80567,68781,1,ašemellah,krl,ADV,на месте,,,
+1617,80568,68781,2,ašemellah,krl,ADV,по-прежнему,as before; still,,
+1618,70797,60246,1,ašetella,krl,VERB,"ставить, устанавливать, расставлять",,,
+1619,70798,60246,2,ašetella,krl,VERB,"начинать, намереваться",,,
+1620,80569,68782,1,ašettamini,krl,NOUN,установка,,,
+1621,80570,68783,1,ašettautuo,krl,VERB,"готовиться, устраиваться",,,
+1622,80571,68784,1,ašettelu,krl,NOUN,"устройство, порядок размещения",,,
+1623,70799,60247,1,ašettua,krl,VERB,"установить, расставить",,,
+1624,70800,60247,2,ašettua,krl,VERB,"начинать, пытаться",,,
+1625,70801,60247,3,ašettua,krl,VERB,успокоить,to get calm,,
+1626,70802,60247,4,ašettua,krl,VERB,настроить,,,
+1627,70803,60248,1,ašettuo,krl,VERB,"останавливаться, располагаться, становиться, успокоиться",,,
+1628,80580,68793,1,ašetuš,krl,NOUN,"установка, устройство",,,
+1629,80573,68785,1,ašeutuliutuo,krl,VERB,"располагаться, усаживаться",,,
+1630,48286,42267,1,aškel,krl,NOUN,шаг,step,492,B15
+1631,48288,42269,1,aškele,krl,NOUN,шаг,step,492,B15
+1632,80578,68791,1,aškeloija,krl,VERB,мерить шагами,,,
