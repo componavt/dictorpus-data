@@ -33,6 +33,7 @@ This repository contains read-only, language-specific CSV datasets for research,
 |---|---|---|
 | [`corpus/`](corpus/) | Which words occur in texts, in which context, and which morphological analyses are possible? | `texts_*`, `sentences_*`, `words_*`, `candidate_analyses_*` |
 | [`dict/`](dict/) | Which lemmas and dictionary meanings exist, which Russian/English meanings do they have, and which examples illustrate them? | `meanings_*`, `examples_*` |
+| [`dict/synonyms/`](dict/synonyms/) | Which dictionary meanings form synonym sets, and what are their collocational patterns? | `synsets_*`, `synset_members_*`, `synset_candidates_*`, `collocations_*` |
 | [`semantics/`](semantics/) | Which semantic concepts and WordNet Domain Hierarchy labels can be associated with dictionary meanings? | `concepts.csv`, `concept_categories_wdh.tsv` |
 
 The `corpus/`, `dict/`, and `semantics/` directories are complementary. They should not be treated as three alternative versions of the same dataset.

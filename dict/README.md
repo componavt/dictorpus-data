@@ -25,12 +25,16 @@ The files describe dictionary meanings, not merely lemma headwords. A single lem
 
 `<lang>` is one of `vep`, `krl`, `olo`, or `lud`.
 
+The [`synonyms/`](synonyms/README.md) directory contains synonym sets,
+their members, automatically proposed candidates, and collocation data.
+These files link to `meanings_<lang>.csv.zst` through `meaning_id`.
+
 ## `meanings_<lang>.csv.zst`
 
 Schema:
 
 ```csv
-id,meaning_id,lemma_id,lemma,lang,pos,meaning_ru,meaning_en,concept_id,category_id
+id,meaning_id,lemma_id,meaning_n,lemma,lang,pos,meaning_ru,meaning_en,concept_id,category_id
 ```
 
 | Column | Meaning |
@@ -38,6 +42,7 @@ id,meaning_id,lemma_id,lemma,lang,pos,meaning_ru,meaning_en,concept_id,category_
 | `id` | Export-row identifier. It is useful for traceability inside this export. |
 | `meaning_id` | Identifier of the VepKar dictionary meaning. Use it to join examples. |
 | `lemma_id` | Identifier of the dictionary lemma/headword. |
+| `meaning_n` | Meaning number within the dictionary entry for this lemma. Use `meaning_id`, not `meaning_n`, to join files. |
 | `lemma` | Lemma spelling in the relevant language variety. |
 | `lang` | Language code: `vep`, `krl`, `olo`, or `lud`. |
 | `pos` | Part of speech, such as `NOUN`, `VERB`, `ADJ`, `ADV`, or `PART`. |
@@ -49,19 +54,20 @@ id,meaning_id,lemma_id,lemma,lang,pos,meaning_ru,meaning_en,concept_id,category_
 Example:
 
 ```csv
-id,meaning_id,lemma_id,lemma,lang,pos,meaning_ru,meaning_en,concept_id,category_id
-1522,48286,42267,aškel,krl,NOUN,шаг,step,492,B15
+id,meaning_id,lemma_id,meaning_n,lemma,lang,pos,meaning_ru,meaning_en,concept_id,category_id
+1630,48286,42267,1,aškel,krl,NOUN,шаг,step,492,B15
 ```
 
 Interpretation:
 
 ```text
 Karelian Proper lemma: aškel
-part of speech:         NOUN
-Russian meaning:         шаг
-English meaning:         step
-semantic concept:        492
-semantic category:       B15
+meaning number:       1
+part of speech:       NOUN
+Russian meaning:      шаг
+English meaning:      step
+semantic concept:     492
+semantic category:    B15
 ```
 
 ### Semantic links
