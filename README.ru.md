@@ -33,6 +33,7 @@
 |---|---|---|
 | [`corpus/`](corpus/) | Какие слова встречаются в текстах, в каком контексте и какие морфологические разборы для них возможны? | `texts_*`, `sentences_*`, `words_*`, `candidate_analyses_*` |
 | [`dict/`](dict/) | Какие леммы и словарные значения есть, каковы их русские и английские толкования и какие примеры с ними связаны? | `meanings_*`, `examples_*` |
+| [`dict/synonyms/`](dict/synonyms/) | Какие словарные значения объединены в синонимические ряды и какова их сочетаемость? | `synsets_*`, `synset_members_*`, `synset_candidates_*`, `collocations_*` |
 | [`semantics/`](semantics/) | С какими концептами и доменами WordNet Domains Hierarchy могут быть связаны словарные значения? | `concepts.csv`, `concept_categories_wdh.tsv` |
 
 Каталоги `corpus/`, `dict/` и `semantics/` дополняют друг друга. Это не три альтернативные версии одного и того же набора данных.

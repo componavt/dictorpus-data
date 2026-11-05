@@ -25,12 +25,16 @@ examples_<lang>.csv.zst
 
 `<lang>` означает один из кодов: `vep`, `krl`, `olo`, `lud`.
 
+В каталоге [`synonyms/`](synonyms/README.ru.md) находятся синонимические
+ряды, их участники, автоматически предложенные кандидаты и данные
+о сочетаемости. Они связаны с `meanings_<lang>.csv.zst` через `meaning_id`.
+
 ## `meanings_<lang>.csv.zst`
 
 Схема:
 
 ```csv
-id,meaning_id,lemma_id,lemma,lang,pos,meaning_ru,meaning_en,concept_id,category_id
+id,meaning_id,lemma_id,meaning_n,lemma,lang,pos,meaning_ru,meaning_en,concept_id,category_id
 ```
 
 | Поле | Значение |
@@ -38,6 +42,7 @@ id,meaning_id,lemma_id,lemma,lang,pos,meaning_ru,meaning_en,concept_id,category_
 | `id` | Идентификатор строки экспорта; полезен для прослеживаемости внутри данного экспорта. |
 | `meaning_id` | Идентификатор словарного значения ВепКар. По нему присоединяются примеры. |
 | `lemma_id` | Идентификатор словарной леммы-заголовка. |
+| `meaning_n` | Номер значения внутри словарной статьи данной леммы. Для объединения файлов используется `meaning_id`, а не `meaning_n`. |
 | `lemma` | Написание леммы в соответствующей языковой разновидности. |
 | `lang` | Код языка: `vep`, `krl`, `olo` или `lud`. |
 | `pos` | Часть речи: например, `NOUN`, `VERB`, `ADJ`, `ADV`, `PART`. |
@@ -49,14 +54,15 @@ id,meaning_id,lemma_id,lemma,lang,pos,meaning_ru,meaning_en,concept_id,category_
 Пример:
 
 ```csv
-id,meaning_id,lemma_id,lemma,lang,pos,meaning_ru,meaning_en,concept_id,category_id
-1522,48286,42267,aškel,krl,NOUN,шаг,step,492,B15
+id,meaning_id,lemma_id,meaning_n,lemma,lang,pos,meaning_ru,meaning_en,concept_id,category_id
+1630,48286,42267,1,aškel,krl,NOUN,шаг,step,492,B15
 ```
 
 Интерпретация:
 
 ```text
 собственно карельская лемма: aškel
+номер значения:              1
 часть речи:                  NOUN
 русское толкование:          шаг
 английский перевод:          step
