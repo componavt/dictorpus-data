@@ -1,0 +1,22 @@
+pos_id,pos,name_en,name_ru
+1,ADJ,Adjective,прилагательное
+2,ADV,Adverb,наречие
+3,CCONJ,Coordinating conjunction,союз сочинительный
+4,INTJ,Interjection,междометие
+5,NOUN,Noun,существительное
+6,NUM,Numeral,числительное
+7,PART,Particle,частица
+8,POSTP,Postposition,послелог
+9,PREP,Preposition,предлог
+10,PRON,Pronoun,местоимение
+11,VERB,Verb,глагол
+12,AUX,Auxiliary verb,вспомогательный глагол
+13,DET,Determiner,детерминатив
+14,PROPN,Proper noun,имя собственное
+15,SCONJ,Subordinating conjunction,союз подчинительный
+16,PUNCT,Punctuation,пунктуация
+17,SYM,Symbol,символ
+18,X,Other,другое
+19,PHRASE,Phrase,фразеологизм
+20,PRE,Predicative,предикатив
+21,PRTC,Participle,причастие

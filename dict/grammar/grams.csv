@@ -1,0 +1,45 @@
+gram_id,gram_category_id,category_en,category_ru,name_en,name_ru,name_short_en,name_short_ru,lgr,unimorph,conll,sequence_number
+1,2,number,число,singular,единственное число,sg,ед. ч.,SG,SG,Number=Sing,1
+2,2,number,число,plural,множественное число,pl,мн. ч.,PL,PL,Number=Plur,2
+3,1,case,падеж,nominative,номинатив,,,NOM,NOM,Case=Nom,1
+4,1,case,падеж,genitive,генитив,,,GEN,GEN,Case=Gen,3
+5,1,case,падеж,partitive,партитив,,,PRT,PRT,Case=Par,4
+6,1,case,падеж,translative,транслатив,,,TRANS,TRANS,Case=Tra,6
+7,1,case,падеж,abessive,абессив,,,AB,PRIV ,Case=Abe,7
+9,1,case,падеж,inessive,инессив,,,IN,IN+ESS,Case=Ine,8
+10,1,case,падеж,elative,элатив,,,ELA,IN+ABL,Case=Ela,9
+11,1,case,падеж,illative,иллатив,,,ILL,IN+ALL,Case=Ill,10
+12,1,case,падеж,adessive,адессив,,,AD,AT+ESS,Case=Ade,11
+13,1,case,падеж,ablative,аблатив,,,ABL,AT+ABL,Case=Abl,13
+14,1,case,падеж,allative,аллатив,,,ALL,AT+ALL,Case=All,14
+15,1,case,падеж,comitative,комитатив,,,COM,COM,Case=Com,15
+16,1,case,падеж,prolative,пролатив,,,PROL,PROL,Case=Per,16
+17,1,case,падеж,terminative,терминатив,,,TERM,TERM,Case=Ter,20
+18,1,case,падеж,approximative,аппроксиматив,,,APPRX,APPRX,,17
+19,1,case,падеж,aditive,адитив,,,ADD,PRP,Case=Add,21
+20,1,case,падеж,egressive,эгрессив,,,EGR,ON/AT+ABL,,19
+21,4,person,лицо,first person,1 лицо,1st,1 л.,1,1,Person=1,1
+22,4,person,лицо,second person,2 лицо,2nd,2 л.,2,2,Person=2,2
+23,4,person,лицо,third person,3 лицо,3rd,3 л.,3,3,Person=3,3
+24,3,tense,время,present,презенс,prs,презенс,PRS,PRS,Tense=Pres,1
+25,3,tense,время,imperfect,имперфект,,имперфект,IPFV.PST,PST;IPFV,Tense=Imp,2
+26,3,tense,время,perfect,перфект,,перфект,PFV,PRS;PRF,,3
+27,5,mood,наклонение,indicative,индикатив,,,IND,IND,VebForm=Fin|Mood=Ind,1
+28,5,mood,наклонение,conditional,кондиционал,,,COND,COND,VebForm=Fin|Mood=Cnd,3
+29,5,mood,наклонение,imperative,императив,,,IMP,IMP,VebForm=Fin|Mood=Imp,2
+30,1,case,падеж,accusative,аккузатив,,,ACC,ACC,Case=Acc,2
+38,6,negation,отрицание,positive form,положительная форма,,полож. ф.,POS,POS,Polarity=Pos,1
+39,6,negation,отрицание,negative form,отрицательная форма,,отриц. ф.,NEG,NEG,Polarity=Neg,2
+40,7,infinitive,инфинитив,infinitive I,I инфинитив,,,INF,NFIN,VebForm=Inf|InfForm=1,1
+41,7,infinitive,инфинитив,infinitive II,II инфинитив,,,INF2,,VebForm=Inf|InfForm=2,2
+42,7,infinitive,инфинитив,infinitive III,III инфинитив,,,INF3,,VebForm=Inf|InfForm=3,3
+43,8,voice,залог,active,актив,,,ACT,ACT,Voice=Active,1
+44,8,voice,залог,passive,пассив,,,PASS,PASS,Voice=Pass,2
+45,9,participle,причастие,1st participle,1-е причастие,,,IPFV.PTCP,V.PTCP;PRS,VebForm=Part|PartForm=Pres,1
+46,9,participle,причастие,2nd participle,2-е причастие,,,PFV.PTCP,V.PTCP;PST,VebForm=Part|PartForm=Past,2
+48,5,mood,наклонение,potential,потенциал,,,POT,POT,VebForm=Fin|Mood=Pot,4
+49,3,tense,время,pluperfect,плюсквамперфект,,плюсквамперфект,PLUPRF,PST;PRF,Tense=Pqp,4
+50,1,case,падеж,instructive,инструктив,,,INS,INS,Case=Ins,18
+51,1,case,падеж,essive,эссив,,,ESS,FRML,Case=Ess,5
+52,1,case,падеж,adessive-allative,адессив-аллатив,,,AD+ALL,AT+ESS+ALL,,12
+53,6,negation,отрицание,connegative,коннегатив,conneg.,,CON,CON,Connegative=Yes,3

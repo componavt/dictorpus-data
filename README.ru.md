@@ -20,6 +20,8 @@
 │ dict/                │       │       │ semantics/           │
 │ meanings             │◄──────┼──────►│ concepts             │
 │ examples             │       │       │ category → WDH       │
+│ morphology/          │       │       │                      │
+│ grammar/             │       │       │                      │
 │                      │       │       │                      │
 │ meaning_id           │       │       │ concept_id            │
 │ concept_id           │───────┘       │ category_id           │
@@ -33,6 +35,8 @@
 |---|---|---|
 | [`corpus/`](corpus/) | Какие слова встречаются в текстах, в каком контексте и какие морфологические разборы для них возможны? | `texts_*`, `sentences_*`, `words_*`, `candidate_analyses_*` |
 | [`dict/`](dict/) | Какие леммы и словарные значения есть, каковы их русские и английские толкования и какие примеры с ними связаны? | `meanings_*`, `examples_*` |
+| [`dict/morphology/`](dict/morphology/README.ru.md) | Какие леммы есть в словаре, какие у них словоформы и какие грамматические наборы и аффиксы с ними связаны? | `lemmas_*`, `lemma_wordforms_*` |
+| [`dict/grammar/`](dict/grammar/README.ru.md) | Из каких граммем состоят грамматические наборы и к каким частям речи они применимы? | `grams.csv`, `gramsets.csv`, `gramset_pos.csv`, `parts_of_speech.csv` |
 | [`dict/synonyms/`](dict/synonyms/) | Какие словарные значения объединены в синонимические ряды и какова их сочетаемость? | `synsets_*`, `synset_members_*`, `synset_candidates_*`, `collocations_*` |
 | [`semantics/`](semantics/) | С какими концептами и доменами WordNet Domains Hierarchy могут быть связаны словарные значения? | `concepts.csv`, `concept_categories_wdh.tsv` |
 
@@ -59,6 +63,8 @@
 *.csv.zst
 ```
 
+Несжатыми хранятся только небольшие справочники: `dict/grammar/*.csv` и файлы в `semantics/`.
+
 В репозитории также есть небольшие несжатые CSV-примеры в каталогах `samples/`. Они подходят для просмотра на GitHub, знакомства со схемой и быстрых локальных проверок.
 
 Посмотреть сжатый файл без создания несжатой копии:
@@ -81,6 +87,8 @@ meanings = pd.read_csv(
 
 Значения CSV-полей могут содержать запятые, кавычки и сложную пунктуацию. Используйте стандартный CSV-парсер: ручное `split(',')` здесь быстро превращается в археологию ошибок.
 
+В `dict/morphology/` и `dict/grammar/` SQL `NULL` записывается как `\N`, а пустая ячейка означает пустую строку. Правило чтения описано в [README словарной морфологии](dict/morphology/README.ru.md#пустые-значения). В остальных файлах такого маркера нет.
+
 ## Политика данных
 
 - Считайте полные `.csv.zst`-файлы неизменяемыми снимками исходных данных.
@@ -101,7 +109,7 @@ corpus/
   words_<lang>.csv        word_id, sentence_id
        │
        ▼
-  candidate_analyses_<lang>.csv
+  candidate_analyses_<lang>.csv    word_id, wordform_id, gramset_id
 
 
 dict/
@@ -109,6 +117,18 @@ dict/
        │
        ▼
   examples_<lang>.csv     meaning_id
+
+dict/morphology/
+  lemmas_<lang>.csv           lemma_id, pos_id
+       │
+       ▼
+  lemma_wordforms_<lang>.csv  wordform_id, lemma_id, gramset_id
+
+dict/grammar/
+  gramsets.csv            gramset_id, gram_id_*
+  grams.csv               gram_id
+  gramset_pos.csv         gramset_id, pos_id
+  parts_of_speech.csv     pos_id
 
 semantics/
   concepts.csv            concept_id, category_id
@@ -133,7 +153,7 @@ semantics/
 
 **Рекомендуемый вариант указания авторства:**
 > «ВепКар — Открытый корпус вепсского и карельского языков; 
-> dictorpus-data, версия v2026.09; распространяется под лицензией CC BY 4.0».
+> dictorpus-data, версия v2026.11; распространяется под лицензией CC BY 4.0».
 
 ## Цитирование
 
