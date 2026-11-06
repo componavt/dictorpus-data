@@ -1,5 +1,28 @@
 🌐 [Читать на русском](CHANGELOG.ru.md)
 
+## v2026.11 — 2026-11-06
+
+- Added the `dict/morphology/` directory: `lemmas_*`, `lemma_wordforms_*`
+  for all four language varieties, including the `affix` column.
+- Added the `dict/grammar/` directory with uncompressed reference tables:
+  `grams.csv`, `gramsets.csv`, `gramset_pos.csv`, `parts_of_speech.csv`.
+- **Schema change:** added the `gramset_id` column after `wordform_id`
+  in `corpus/candidate_analyses_*.csv.zst`. Loaders that read columns
+  by position must be updated.
+- In the new directories, SQL `NULL` is written as `\N`, and an empty cell
+  means an empty string. The format of other files has not changed.
+- Updated the corpus: `krl` +2 texts, +46 sentences, +492 words,
+  +466 candidates; `olo` +1 text, +36 sentences, +544 words,
+  +674 candidates. Existing rows have not changed.
+- In `dict/meanings_lud.csv.zst`, `id` values changed; the content is the same.
+- Documentation: corrected the description of how `gramset` is built
+  (only `lgr` is used) and the CSV quoting rules; described repeated
+  `meaning_id` values.
+- Samples: added `gramset_id` to `corpus/samples/candidate_analyses_krl.csv`,
+  updated `id` values in `dict/samples/examples_krl.csv`, and added
+  `dict/morphology/samples/`.
+- Source: VepKar / Dictorpus database export.
+
 ## v2026.10 — 2026-11-05
 
 - Added the `meaning_n` column — the meaning number within a dictionary

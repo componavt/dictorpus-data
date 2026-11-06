@@ -7,34 +7,38 @@ Versioned source-data exports from the VepKar corpus and dictionaries.
 This repository contains read-only, language-specific CSV datasets for research, reproducible processing, and downstream applications. It contains source exports and compact samples, not derived model outputs, temporary files, experimental splits, or personal annotations.
 
 ```text
-                    ┌──────────────────────┐
-                    │ corpus/              │
-                    │ texts → sentences    │
-                    │       → words        │
-                    │       → candidates   │
-                    └──────────────────────┘
+                    ┌──────────────────────
+                    │ corpus/
+                    │ texts → sentences
+                    │       → words
+                    │       → candidates
+                    └──────────────────────
                                │
                                │ corpus word / context
                                │
-┌──────────────────────┐       │       ┌──────────────────────┐
-│ dict/                │       │       │ semantics/           │
-│ meanings             │◄──────┼──────►│ concepts             │
-│ examples             │       │       │ category → WDH       │
-│                      │       │       │                      │
-│ meaning_id           │       │       │ concept_id            │
-│ concept_id           │───────┘       │ category_id           │
-│ category_id          │               │ wdh                   │
-└──────────────────────┘               └──────────────────────┘
+┌──────────────────────        │       ┌──────────────────────
+│ dict/                        │       │ semantics/
+│ meanings              ◄──────┼──────►│ concepts
+│ examples                     │       │ category → WDH
+│ morphology/                  │       │
+│ grammar/                     │       │
+│                              │       │
+│ meaning_id                   │       │ concept_id
+│ concept_id            ───────┘       │ category_id
+│ category_id                          │ wdh
+└──────────────────────                └──────────────────────
 ```
 
 ## Contents
 
 | Directory | Question answered | Main datasets |
 |---|---|---|
-| [`corpus/`](corpus/) | Which words occur in texts, in which context, and which morphological analyses are possible? | `texts_*`, `sentences_*`, `words_*`, `candidate_analyses_*` |
-| [`dict/`](dict/) | Which lemmas and dictionary meanings exist, which Russian/English meanings do they have, and which examples illustrate them? | `meanings_*`, `examples_*` |
-| [`dict/synonyms/`](dict/synonyms/) | Which dictionary meanings form synonym sets, and what are their collocational patterns? | `synsets_*`, `synset_members_*`, `synset_candidates_*`, `collocations_*` |
-| [`semantics/`](semantics/) | Which semantic concepts and WordNet Domain Hierarchy labels can be associated with dictionary meanings? | `concepts.csv`, `concept_categories_wdh.tsv` |
+| [`corpus/`](corpus/README.md) | Which words occur in texts, in which context, and which morphological analyses are possible? | `texts_*`, `sentences_*`, `words_*`, `candidate_analyses_*` |
+| [`dict/`](dict/README.md) | Which lemmas and dictionary meanings exist, which Russian/English meanings do they have, and which examples illustrate them? | `meanings_*`, `examples_*` |
+| [`dict/morphology/`](dict/morphology/README.md) | Which lemmas does the dictionary contain, what are their wordforms, and which grammatical sets and affixes are linked to them? | `lemmas_*`, `lemma_wordforms_*` |
+| [`dict/grammar/`](dict/grammar/README.md) | Which grammemes make up grammatical sets, and which parts of speech do the sets apply to? | `grams.csv`, `gramsets.csv`, `gramset_pos.csv`, `parts_of_speech.csv` |
+| [`dict/synonyms/`](dict/synonyms/README.md) | Which dictionary meanings form synonym sets, and what are their collocational patterns? | `synsets_*`, `synset_members_*`, `synset_candidates_*`, `collocations_*` |
+| [`semantics/`](semantics/README.md) | Which semantic concepts and WordNet Domain Hierarchy labels can be associated with dictionary meanings? | `concepts.csv`, `concept_categories_wdh.tsv` |
 
 The `corpus/`, `dict/`, and `semantics/` directories are complementary. They should not be treated as three alternative versions of the same dataset.
 
@@ -56,6 +60,8 @@ The full datasets are UTF-8 CSV files compressed with Zstandard:
 ```text
 *.csv.zst
 ```
+
+Only small reference tables are stored uncompressed: `dict/grammar/*.csv` and the files in `semantics/`.
 
 The repository also provides small uncompressed CSV examples in `samples/` directories for quick inspection and schema testing.
 
@@ -79,6 +85,8 @@ meanings = pd.read_csv(
 
 CSV fields may contain commas, quotation marks, and line-like punctuation. Use a standard CSV parser; do not split lines manually on commas.
 
+In `dict/morphology/` and `dict/grammar/`, SQL `NULL` is written as `\N`, and an empty cell means an empty string. The reading rule is described in the [dictionary morphology README](dict/morphology/README.md#empty-values). Other files do not use this marker.
+
 ## Data policy
 
 - Treat full `.csv.zst` files as immutable source snapshots.
@@ -99,7 +107,7 @@ corpus/
   words_<lang>.csv        word_id, sentence_id
        │
        ▼
-  candidate_analyses_<lang>.csv
+  candidate_analyses_<lang>.csv    word_id, wordform_id, gramset_id
 
 
 dict/
@@ -107,6 +115,18 @@ dict/
        │
        ▼
   examples_<lang>.csv     meaning_id
+
+dict/morphology/
+  lemmas_<lang>.csv           lemma_id, pos_id
+       │
+       ▼
+  lemma_wordforms_<lang>.csv  wordform_id, lemma_id, gramset_id
+
+dict/grammar/
+  gramsets.csv            gramset_id, gram_id_*
+  grams.csv               gram_id
+  gramset_pos.csv         gramset_id, pos_id
+  parts_of_speech.csv     pos_id
 
 semantics/
   concepts.csv            concept_id, category_id
@@ -131,7 +151,7 @@ identify the license as CC BY 4.0, and indicate whether you modified the data.
 
 Suggested attribution:
 "VepKar — The Open Corpus of the Veps and Karelian Languages;
-dictorpus-data, version v2026.09; licensed under CC BY 4.0."
+dictorpus-data, version v2026.11; licensed under CC BY 4.0."
 
 ## Citation
 

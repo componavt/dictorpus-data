@@ -20,6 +20,8 @@ The dataset does **not** target word-sense disambiguation, lemma selection, or s
 wordform_id + gramset
 ```
 
+The numeric `gramset_id` links a candidate to the [`../dict/grammar/gramsets.csv`](../dict/grammar/README.md) reference table and to the [`../dict/morphology/`](../dict/morphology/README.md) dictionary morphology.
+
 ## Storage format
 
 The full VepKar source data are stored as individually compressed UTF-8 CSV files in Zstandard format:
@@ -84,7 +86,7 @@ words_<lang>.csv
        │
        ▼
 candidate_analyses_<lang>.csv
-    word_id, wordform_id, gramset, relevance
+    word_id, wordform_id, gramset_id, gramset, relevance
 ```
 
 ## `candidate_analyses_*.csv`
@@ -94,17 +96,18 @@ This is the central file for morphological candidate ranking. Each row represent
 Example:
 
 ```csv
-word_id,wordform_id,gramset,relevance
-3675349,8063,SG+NOM,1
-3675349,8063,SG+ACC,1
-3675350,2111182,SG+IN,1
+word_id,wordform_id,gramset_id,gramset,relevance
+3675349,8063,1,SG+NOM,1
+3675349,8063,56,SG+ACC,1
+3675350,2111182,8,SG+IN,2
 ```
 
 | Column | Type | Description |
 |---|---|---|
 | `word_id` | integer | Identifier of a corpus word. It corresponds to `words.id` and joins this table to `words_*.csv`. |
 | `wordform_id` | integer | Identifier of the dictionary wordform candidate. It corresponds to `text_wordform.wordform_id`. |
-| `gramset` | string | Compact representation of the candidate grammatical feature set. It is constructed from VepKar grammatical attributes, using `lgr` codes with `name_short_en` as a fallback when needed. Examples: `SG+NOM`, `SG+IPFV.PST+1+IND+POS`, `INF`, `ACT+IPFV.PTCP`. |
+| `gramset_id` | integer | Identifier of the grammatical set. Join to `../dict/grammar/gramsets.csv`; see [below](#candidates-without-a-grammatical-set) for special values. |
+| `gramset` | string or empty | Compact representation of the candidate grammatical feature set. It is built only from the `lgr` codes of grammemes and matches `gramsets.csv` for the same `gramset_id`. Examples: `SG+NOM`, `SG+IPFV.PST+1+IND+POS`, `INF`, `ACT+IPFV.PTCP`. |
 | `relevance` | integer | Status of the morphological candidate in VepKar: `0` = rejected candidate; `1` = automatically proposed, not expert-selected candidate; `2` = candidate selected by an expert as correct. |
 
 ### Important rule: gold candidate
@@ -124,11 +127,17 @@ All rows with the same `word_id` form the candidate set for one corpus word.
 ```text
 word_id = 3675349
 
-candidate 1: wordform_id = 8063, gramset = SG+NOM
-candidate 2: wordform_id = 8063, gramset = SG+ACC
+candidate 1: wordform_id = 8063, gramset_id = 1,  gramset = SG+NOM
+candidate 2: wordform_id = 8063, gramset_id = 56, gramset = SG+ACC
 ```
 
 Derived fields such as candidate count, ambiguity status, gold label, train/dev/test split, and data-quality flags are intentionally not stored in the source export. They must be created by reproducible preparation scripts in a separate results directory.
+
+### Candidates without a grammatical set
+
+In 13,883 rows, `gramset` is empty. These rows have `gramset_id = 0`, and 27 rows in `lud` have `gramset_id = 7`. These values are not present in `gramsets.csv`, so an inner join with the reference table will lose such rows. They include rows with `relevance = 2`.
+
+As a result, the pair `wordform_id + gramset` is not always unique within a word: in `lud`, candidates with an empty `gramset` coincide for two words. The triple `word_id + wordform_id + gramset_id` is unique in all files.
 
 ## `sentences_*.csv`
 
@@ -211,6 +220,10 @@ words.word
 
 The normalized `word` form is the primary input form for morphological models in this project. Original surface forms remain recoverable from `sentence_xml` when a future experiment requires them.
 
+### Words without a sentence
+
+Some rows reference a `sentence_id` that is absent from `sentences_*.csv`: 1,648 in `krl`, 449 in `olo`, and 173 in `vep`. An inner join will lose these words.
+
 ## CSV rules
 
 All files use:
@@ -222,4 +235,4 @@ Quote character: double quote (")
 Escaping:       embedded double quotes are doubled ("")
 ```
 
-Textual values such as XML sentences and Russian translations are quoted. Therefore, commas, quotation marks, and punctuation inside sentence text do not change the CSV column structure.
+A value is quoted only when its content requires it, for example when the text contains a comma or a quotation mark. Therefore, read the files with a CSV parser rather than by splitting lines.

@@ -7,38 +7,38 @@
 Репозиторий содержит доступные для исследований, воспроизводимой обработки и прикладных задач CSV-данные по четырём языковым разновидностям. Здесь хранятся исходные экспорты и компактные примеры, но не производные результаты моделей, временные файлы, экспериментальные разбиения или личные аннотации.
 
 ```text
-                    ┌──────────────────────┐
-                    │ corpus/              │
-                    │ texts → sentences    │
-                    │       → words        │
-                    │       → candidates   │
-                    └──────────────────────┘
+                    ┌──────────────────────
+                    │ corpus/
+                    │ texts → sentences
+                    │       → words
+                    │       → candidates
+                    └──────────────────────
                                │
                                │ слово корпуса / контекст
                                │
-┌──────────────────────┐       │       ┌──────────────────────┐
-│ dict/                │       │       │ semantics/           │
-│ meanings             │◄──────┼──────►│ concepts             │
-│ examples             │       │       │ category → WDH       │
-│ morphology/          │       │       │                      │
-│ grammar/             │       │       │                      │
-│                      │       │       │                      │
-│ meaning_id           │       │       │ concept_id            │
-│ concept_id           │───────┘       │ category_id           │
-│ category_id          │               │ wdh                   │
-└──────────────────────┘               └──────────────────────┘
+┌──────────────────────        │       ┌──────────────────────
+│ dict/                        │       │ semantics/
+│ meanings              ◄──────┼──────►│ concepts
+│ examples                     │       │ category → WDH
+│ morphology/                  │       │
+│ grammar/                     │       │
+│                              │       │
+│ meaning_id                   │       │ concept_id
+│ concept_id            ───────┘       │ category_id
+│ category_id                          │ wdh
+└──────────────────────                └──────────────────────
 ```
 
 ## Состав репозитория
 
 | Каталог | На какой вопрос отвечает | Основные наборы данных |
 |---|---|---|
-| [`corpus/`](corpus/) | Какие слова встречаются в текстах, в каком контексте и какие морфологические разборы для них возможны? | `texts_*`, `sentences_*`, `words_*`, `candidate_analyses_*` |
-| [`dict/`](dict/) | Какие леммы и словарные значения есть, каковы их русские и английские толкования и какие примеры с ними связаны? | `meanings_*`, `examples_*` |
+| [`corpus/`](corpus/README.ru.md) | Какие слова встречаются в текстах, в каком контексте и какие морфологические разборы для них возможны? | `texts_*`, `sentences_*`, `words_*`, `candidate_analyses_*` |
+| [`dict/`](dict/README.ru.md) | Какие леммы и словарные значения есть, каковы их русские и английские толкования и какие примеры с ними связаны? | `meanings_*`, `examples_*` |
 | [`dict/morphology/`](dict/morphology/README.ru.md) | Какие леммы есть в словаре, какие у них словоформы и какие грамматические наборы и аффиксы с ними связаны? | `lemmas_*`, `lemma_wordforms_*` |
 | [`dict/grammar/`](dict/grammar/README.ru.md) | Из каких граммем состоят грамматические наборы и к каким частям речи они применимы? | `grams.csv`, `gramsets.csv`, `gramset_pos.csv`, `parts_of_speech.csv` |
-| [`dict/synonyms/`](dict/synonyms/) | Какие словарные значения объединены в синонимические ряды и какова их сочетаемость? | `synsets_*`, `synset_members_*`, `synset_candidates_*`, `collocations_*` |
-| [`semantics/`](semantics/) | С какими концептами и доменами WordNet Domains Hierarchy могут быть связаны словарные значения? | `concepts.csv`, `concept_categories_wdh.tsv` |
+| [`dict/synonyms/`](dict/synonyms/README.ru.md) | Какие словарные значения объединены в синонимические ряды и какова их сочетаемость? | `synsets_*`, `synset_members_*`, `synset_candidates_*`, `collocations_*` |
+| [`semantics/`](semantics/README.ru.md) | С какими концептами и доменами WordNet Domains Hierarchy могут быть связаны словарные значения? | `concepts.csv`, `concept_categories_wdh.tsv` |
 
 Каталоги `corpus/`, `dict/` и `semantics/` дополняют друг друга. Это не три альтернативные версии одного и того же набора данных.
 

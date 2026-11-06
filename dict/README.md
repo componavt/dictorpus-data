@@ -20,6 +20,8 @@ The files describe dictionary meanings, not merely lemma headwords. A single lem
 |---|---|---|
 | `meanings_<lang>.csv.zst` | A dictionary meaning of a lemma | `meaning_id` |
 | `examples_<lang>.csv.zst` | An example associated with a dictionary meaning | `id` |
+| `morphology/` | Lemmas and the links between lemmas and wordforms | `lemma_id`, `wordform_id` |
+| `grammar/` | Grammemes, grammatical sets, and parts of speech | `gram_id`, `gramset_id`, `pos_id` |
 | `samples/meanings_krl.csv` | Small uncompressed Karelian Proper example | — |
 | `samples/examples_krl.csv` | Small uncompressed Karelian Proper example | — |
 
@@ -28,6 +30,10 @@ The files describe dictionary meanings, not merely lemma headwords. A single lem
 The [`synonyms/`](synonyms/README.md) directory contains synonym sets,
 their members, automatically proposed candidates, and collocation data.
 These files link to `meanings_<lang>.csv.zst` through `meaning_id`.
+
+The [`morphology/`](morphology/README.md) directory contains all lemmas and their wordforms:
+`lemma_id` in `meanings_<lang>.csv.zst` references `morphology/lemmas_<lang>.csv.zst`.
+Reference tables of grammemes and grammatical sets are in [`grammar/`](grammar/README.md).
 
 ## `meanings_<lang>.csv.zst`
 
@@ -39,8 +45,8 @@ id,meaning_id,lemma_id,meaning_n,lemma,lang,pos,meaning_ru,meaning_en,concept_id
 
 | Column | Meaning |
 |---|---|
-| `id` | Export-row identifier. It is useful for traceability inside this export. |
-| `meaning_id` | Identifier of the VepKar dictionary meaning. Use it to join examples. |
+| `id` | Row number within this export. It may change between exports, so do not use it for joins. |
+| `meaning_id` | Identifier of the VepKar dictionary meaning. Use it to join examples. Almost always unique; see [below](#repeated-meaning_id). |
 | `lemma_id` | Identifier of the dictionary lemma/headword. |
 | `meaning_n` | Meaning number within the dictionary entry for this lemma. Use `meaning_id`, not `meaning_n`, to join files. |
 | `lemma` | Lemma spelling in the relevant language variety. |
@@ -82,6 +88,10 @@ meanings_<lang>.csv
 
 `concept_id` and `category_id` are metadata links, not substitutes for `meaning_ru` or `meaning_en`. In particular, do not automatically replace a meaning's English translation with `concept_en` from `concepts.csv`.
 
+### Repeated `meaning_id`
+
+A meaning linked to two concepts occupies two rows that differ only in `id`, `concept_id`, and `category_id`. The current export has two such meanings: `30328` in `krl` and `33481` in `lud`.
+
 ## `examples_<lang>.csv.zst`
 
 Schema:
@@ -92,7 +102,7 @@ id,meaning_id,example
 
 | Column | Meaning |
 |---|---|
-| `id` | Export-row identifier for the example record. |
+| `id` | Row number of the example within this export. It may change between exports. |
 | `meaning_id` | Identifier of the dictionary meaning illustrated by the example. Join to `meanings_<lang>.csv.zst.meaning_id`. |
 | `example` | Example sentence or fragment. It may contain commas, quotation marks, punctuation, or repeated source examples. |
 
@@ -114,7 +124,7 @@ meanings = pd.read_csv("meanings_krl.csv.zst", compression="zstd", dtype=str)
 examples = pd.read_csv("examples_krl.csv.zst", compression="zstd", dtype=str)
 
 joined = examples.merge(
-    meanings,
+    meanings.drop(columns=["id", "concept_id", "category_id"]).drop_duplicates("meaning_id"),
     on="meaning_id",
     how="left",
     validate="many_to_one",
@@ -129,6 +139,8 @@ many example rows
         ▼
 one dictionary meaning
 ```
+
+The semantic columns are dropped here: otherwise, [repeated `meaning_id` values](#repeated-meaning_id) make the `many_to_one` check fail. If you need these columns, join without `validate` and keep in mind that examples of such meanings will be doubled.
 
 ## Reading files
 
