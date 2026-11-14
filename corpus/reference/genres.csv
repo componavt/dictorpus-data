@@ -1,0 +1,76 @@
+genre_id,parent_id,corpus_id,sequence_number,name_en,name_ru,name_pl_en,name_pl_ru
+6,19,4,212,Bridal lament,свадебное причитание,Bridal laments,Свадебные
+7,19,4,211,Burial and funeral,похоронное или поминальное причитание,Funeral or memorial laments,Похоронные или поминальные
+10,0,4,130,Children's folklore,детский фольклор,Children's folklore,Детский фольклор
+11,0,1,2,Narrative,бытовой рассказ,Narratives,Бытовые рассказы
+12,0,4,230,Tale,сказка,Tales,Сказки
+13,54,4,173,"Proverb, saying","пословица, поговорка","Proverbs, sayings","Пословицы, поговорки"
+15,0,4,160,"Сonspiracy, spell","заговор, заклинание","Conspiracies, spells","Заговоры, заклинания"
+16,54,4,171,Riddle,загадка,Riddles,Загадки
+17,54,4,172,Dittie,частушка,Ditties,Частушки
+18,0,4,200,"Omen, taboo, folk belief","примета, запрет, поверье","Omens, taboos, folk beliefs","Приметы, запреты, поверья"
+19,0,4,210,Lamentation,причитание,Lamentations,Причитания
+21,0,8,10,Epic work,эпическое произведение,Epic works,Эпические произведения
+22,21,8,11,Epic,эпопея,Epics,Эпопеи
+23,21,8,12,Novel,роман,Novels,Романы
+24,21,8,13,Novella,повесть,Novellas,Повести
+25,21,8,14,Short story,"рассказ, новелла",Short stories,"Рассказы, новеллы"
+27,21,8,16,Sketch,очерк,Sketches,Очерки
+28,21,8,17,Literary (author's) tale,литературная (авторская) сказка,Literary (author's) tales,Литературные (авторские) сказки
+29,21,8,18,Fable,басня,Fables,Басни
+30,0,8,20,Lyric work,лирическое произведение,Lyric works,Лирические произведения
+31,30,8,21,Ode,ода,Odes,Оды
+32,30,8,22,Hymn,гимн,Hymns,Гимны
+33,30,8,23,Epigram,эпиграмма,Epigrams,Эпиграммы
+34,30,8,24,Elegy (lyric poem),элегия (лирическое стихотворение),Elegies (lyric poems),Элегии (лирические стихотворения)
+35,30,8,25,Epistolary work,эпистолярное произведение,Epistolary works,Эпистолярные произведения
+36,30,8,26,Sonnet,сонет,Sonnets,Сонеты
+37,0,8,30,Lyroepic,лироэпическое произведение,Lyroepics,Лироэпические произведения
+38,37,8,31,Ballad,баллада,Ballads,Баллады
+39,37,8,32,Poem,поэма,Poems,Поэмы
+40,0,8,40,Dramatic work,драматическое произведение,Dramatic works,Драматические произведения
+41,40,8,41,Tragedy,трагедия,Tragedies,Трагедии
+42,40,8,42,Comedy,комедия,Comedies,Комедии
+43,40,8,43,Drama,драма,Dramas,Драмы
+44,40,8,44,Vaudeville,водевиль,Vaudevilles,Водевили
+45,40,8,45,Farce,фарс,Farces,Фарсы
+46,0,4,110,Joke,анекдот,Jokes,Анекдоты
+47,0,4,120,Mythological Legend,"мифологическая проза (быличка, бывальщина)",Mythological Legends,"Былички, бывальщины"
+48,10,4,131,Lullaby,колыбельная песня,Lullabies,Колыбельные песни
+49,10,4,132,"Pestle, nursery rhyme","пестушка, потешка","Pestushki, nursery rhymes","Пестушки, потешки"
+50,10,4,133,Cumulative song,кумулятивная песня,Cumulative songs,Кумулятивные песни
+51,10,4,134,"Teaser, tongue twister, counting rhyme","дразнилка, скороговорка, считалка","Teasers, tongue twisters, counting rhymes","Дразнилки, скороговорки, считалки"
+52,0,4,140,Spiritual verse,духовный стих,Spiritual verses,Духовные стихи
+53,0,4,150,Yoyga,ёйга,Yoygas,Ёйги
+54,0,4,170,Small genres,малые жанры,Small genres,Малые жанры
+55,0,4,180,Song,песня,Songs,Песни
+56,55,4,181,Historical song,историческая песня,Historical songs,Исторические песни
+57,55,4,182,Lyric song,лирическая песня,Lyric songs,лирические песни
+58,55,4,183,Wedding song,свадебная песня,Wedding songs,Свадебные песни
+59,55,4,184,Calendar song,календарная песня,Calendar songs,Календарные песни
+60,0,4,190,Historical Legend,предание,Historical Legends,Предания
+61,12,4,231,Comic tale,анекдотическая сказка,Comic tales,Анекдотические сказки
+62,12,4,232,Fairy tale,волшебная сказка,Fairy tales,Волшебная сказки
+63,12,4,236,Legendary tale,легендарная  сказка,Legendary tales,Легендарные сказки
+64,12,4,234,Household tale,новеллистическая (бытовая) сказка,Novelistic (household) tales,Новеллистические (бытовые) сказки
+65,12,4,235,Tale about animals,сказка о животных,Tales about animals,Сказки о животных
+66,0,4,214,Runic poetry,руническая поэзия,Runic poetry,Руническая поэзия
+67,66,4,215,Epic rune,эпическая руна,Epic runes,Эпические руны
+71,66,4,218,Spell rune,заговорная руна,Spell runes,Заговорные руны
+75,66,4,226,Wedding rune,свадебная руна,Wedding runes,Свадебные руны
+77,0,4,191,Religious/Aetiological Legend,легенда,Religious/Aetiological Legends,Легенды
+78,66,4,225,lyric rune,лирическая руна,Lyric runes,Лирические руны
+79,66,4,217,cumulative rune,кумулятивная руна,Сumulative runes,Кумулятивные руны
+80,66,4,216,Ballad rune,балладная руна,Ballad runes,Балладные руны
+81,71,4,219,Spell rune (Fishery),заговорная  руна (промысловая),Fishery,Промысловые
+82,71,4,221,Spell rune (Healing),заговорная руна (лечебная),Healing,Лечебные
+83,71,4,220,Spell rune (Household),заговорная руна (хозяйственная),Household,Хозяйственные
+84,71,4,222,Spell rune (Love),заговорная руна (любовная),Love,Любовные
+85,71,4,223,Conspiracy rune (other),заговорная руна (прочие),Others,Прочие
+86,19,4,213,Everyday lament,бытовое причитание,Everyday laments,Бытовые
+87,0,15,1,Ethnographic story,этнографический рассказ,Ethnographic stories,Этнографические рассказы
+88,47,4,121,Folktale about festive spirits,быличка о праздничных духах,Folktales about festive spirits,Былички о праздничных духах
+89,47,4,122,Folktale about the forest’s guardian spirits,быличка о духах-хозяевах леса,Folktales about the forest’s guardian spirits,Былички о духах-хозяевах леса
+90,47,4,123,Folktale about the water’s guardian spirits,быличка о духах-хозяевах воды,Folktales about the water’s guardian spirits,Былички о духах-хозяевах воды
+91,47,4,124,Folktale about the guardian spirits of the bathhouse,быличка о духах-хозяевах бани,Folktales about the guardian spirits of the bathhouse,Былички о духах-хозяевах бани
+93,66,4,227,Legendary Rune,легендарная  руна,Legendary Runes,Легендарные руны

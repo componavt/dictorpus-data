@@ -1,0 +1,59 @@
+dialect_id,dialect_code,lang_code,sequence_number,name_en,name_ru
+1,vep-north,vep,2,Northern Veps,Северновепсский
+3,vep-south,vep,4,Southern Veps,Южновепсский
+4,vep-centr-east,vep,5,Central Eastern Veps,Средневепсский восточный
+5,vep-centr-west,vep,6,Central Western Veps,Средневепсский западный
+6,krl-oul,krl,16,Oulanga,Оулангский
+7,krl-kst,krl,10,Kestenga,Кестеньгский
+8,krl-tht,krl,26,Tikhtozero,Тихтозерский
+9,krl-vch,krl,6,Vychetaibola,Вычетайбольский
+10,krl-vkn,krl,5,Voknavolok,Вокнаволокский
+11,krl-uht,krl,29,Uhta,Ухтинский
+12,krl-knt,krl,12,Kontokki,Контоккский
+13,krl-ysh,krl,31,Yushkozero,Юшкозерский
+14,krl-pnz,krl,18,Panozero,Панозерский
+15,krl-pdz,krl,19,Poduzhemye,Подужемский
+16,krl-rgz,krl,22,Rugozero,Ругозерский
+17,krl-tng,krl,28,Tunguda,Тунгудский
+18,krl-rbl,krl,21,Reboly,Ребольский
+19,krl-pdn,krl,17,Padany,Паданский
+20,krl-prs,krl,20,Porosozero,Поросозерский
+21,krl-myn,krl,15,Myandyselga,Мяндусельгский
+25,krl-thv,krl,25,Tikhvin,Тихвинский
+26,krl-tlm,krl,27,Tolmachi,Толмачевский
+27,krl-vsg,krl,4,Vesyegonsk,Весьегонский
+28,krl-vld,krl,3,Valdai,Валдайский
+29,krl-dyor,krl,7,Dyorzha,Дёржанский
+30,olo-smz,olo,11,Syamozero,Сямозерский
+31,olo-tlm,olo,12,Tulmozero,Тулмозерский
+32,olo-vdl,olo,2,Vedlozero,Ведлозерский
+33,olo-vid,olo,3,Vidlitsa,Видлицкий
+34,olo-ktk,olo,6,Kotkozero,Коткозерский
+35,olo-rpsh,olo,8,Rypushkalitsa,Рыпушкальский
+36,olo-nkk,olo,7,Nekkula,Неккульский
+37,olo-knd,olo,5,Kondushi,Кондушский
+38,lud-nrth,lud,4,Northern Ludian (Kondopoga),Севернолюдиковский (кондопожский)
+39,lud-cntr,lud,5,Central Ludian (Munozero),Среднелюдиковский (мунозерский)
+41,lud-mhl,lud,6,Mikhailovskoye,Михайловский
+42,lud-svt,lud,0,Southern Ludian (Svjatozero),Южнолюдиковский (святозерский)
+43,vep-new,vep,1,New written Veps,Младописьменный вепсский
+44,olo-new,olo,1,New written Livvic,Новописьменный ливвиковский
+45,lud-new,lud,1,New written Ludian,Новописьменный людиковский
+46,krl-new,krl,1,New written karelian,Новописьменный севернокарельский
+47,krl-new-tvr,krl,2,New written Tver,Новописьменный тверской
+48,krl-masl,krl,14,Maslozero,Маслозерский
+49,krl-shz,krl,30,Shuezersky,Шуезерский
+50,krl-krt,krl,9,Keret,Керетьский
+52,krl-knz,krl,11,Knyazhaya,Княжая
+53,krl-krb,krl,13,Korbiselga,Корбисельгский
+54,olo-srv,olo,10,Suoyarvi,Суоярвский (ливв.)
+55,krl-srv,krl,24,Suoyarvi,Суоярвский (с.к.)
+57,klr-sst,krl,23,Suistamo,Суйстамский
+58,olo-imp,olo,4,Impilahti,Импилахтинский
+59,olo-slm,olo,9,Salmi,Салминский
+60,krl-ilm,krl,8,Ilomantsi,Иломантсинский
+61,olo-old,olo,13,Old written Livvic,Старописьменный ливвиковский
+62,krl-old-nrt,krl,32,Old written Karelian,Старописьменный севернокарельский
+63,krl-old-tvr,krl,33,Old written Tver,Старописьменный тверской карельский
+64,vep-old,vep,7,Old written Veps,Старописьменный вепсский
+65,krl-old-mdl,krl,34,Old Middle Karelian,Старописьменный среднекарельский
