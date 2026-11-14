@@ -34,6 +34,7 @@
 | Каталог | На какой вопрос отвечает | Основные наборы данных |
 |---|---|---|
 | [`corpus/`](corpus/README.ru.md) | Какие слова встречаются в текстах, в каком контексте и какие морфологические разборы для них возможны? | `texts_*`, `sentences_*`, `words_*`, `candidate_analyses_*` |
+| [`corpus/reference/`](corpus/reference/README.ru.md) | Что означают идентификаторы подкорпусов, жанров и коды диалектов в метаданных текстов? | `corpora.csv`, `genres.csv`, `dialects.csv` |
 | [`dict/`](dict/README.ru.md) | Какие леммы и словарные значения есть, каковы их русские и английские толкования и какие примеры с ними связаны? | `meanings_*`, `examples_*` |
 | [`dict/morphology/`](dict/morphology/README.ru.md) | Какие леммы есть в словаре, какие у них словоформы и какие грамматические наборы и аффиксы с ними связаны? | `lemmas_*`, `lemma_wordforms_*` |
 | [`dict/grammar/`](dict/grammar/README.ru.md) | Из каких граммем состоят грамматические наборы и к каким частям речи они применимы? | `grams.csv`, `gramsets.csv`, `gramset_pos.csv`, `parts_of_speech.csv` |
@@ -63,7 +64,7 @@
 *.csv.zst
 ```
 
-Несжатыми хранятся только небольшие справочники: `dict/grammar/*.csv` и файлы в `semantics/`.
+Несжатыми хранятся только небольшие справочники: `dict/grammar/*.csv`, `corpus/reference/*.csv` и файлы в `semantics/`.
 
 В репозитории также есть небольшие несжатые CSV-примеры в каталогах `samples/`. Они подходят для просмотра на GitHub, знакомства со схемой и быстрых локальных проверок.
 
@@ -87,7 +88,7 @@ meanings = pd.read_csv(
 
 Значения CSV-полей могут содержать запятые, кавычки и сложную пунктуацию. Используйте стандартный CSV-парсер: ручное `split(',')` здесь быстро превращается в археологию ошибок.
 
-В `dict/morphology/` и `dict/grammar/` SQL `NULL` записывается как `\N`, а пустая ячейка означает пустую строку. Правило чтения описано в [README словарной морфологии](dict/morphology/README.ru.md#пустые-значения). В остальных файлах такого маркера нет.
+В `dict/morphology/`, `dict/grammar/` и `corpus/reference/` SQL `NULL` записывается как `\N`, а пустая ячейка означает пустую строку. Правила чтения описаны в README соответствующих каталогов. Не переносите это соглашение автоматически на остальные файлы репозитория.
 
 ## Политика данных
 
@@ -106,10 +107,15 @@ corpus/
   sentences_<lang>.csv    sentence_id, text_id
        │
        ▼
-  words_<lang>.csv        word_id, sentence_id
+  words_<lang>.csv        word_id, sentence_id, w_id, s_id
        │
        ▼
   candidate_analyses_<lang>.csv    word_id, wordform_id, gramset_id
+
+corpus/reference/
+  corpora.csv             corpus_id      ← texts.corpus_id
+  genres.csv              genre_id       ← texts.genre_id
+  dialects.csv            dialect_code   ← texts.dialect_code
 
 
 dict/
@@ -153,7 +159,7 @@ semantics/
 
 **Рекомендуемый вариант указания авторства:**
 > «ВепКар — Открытый корпус вепсского и карельского языков; 
-> dictorpus-data, версия v2026.11; распространяется под лицензией CC BY 4.0».
+> dictorpus-data, версия v2026.13; распространяется под лицензией CC BY 4.0».
 
 ## Цитирование
 

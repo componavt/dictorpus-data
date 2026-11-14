@@ -34,6 +34,7 @@ This repository contains read-only, language-specific CSV datasets for research,
 | Directory | Question answered | Main datasets |
 |---|---|---|
 | [`corpus/`](corpus/README.md) | Which words occur in texts, in which context, and which morphological analyses are possible? | `texts_*`, `sentences_*`, `words_*`, `candidate_analyses_*` |
+| [`corpus/reference/`](corpus/reference/README.md) | What do corpus/subcorpus identifiers, genre identifiers, and dialect codes in text metadata mean? | `corpora.csv`, `genres.csv`, `dialects.csv` |
 | [`dict/`](dict/README.md) | Which lemmas and dictionary meanings exist, which Russian/English meanings do they have, and which examples illustrate them? | `meanings_*`, `examples_*` |
 | [`dict/morphology/`](dict/morphology/README.md) | Which lemmas does the dictionary contain, what are their wordforms, and which grammatical sets and affixes are linked to them? | `lemmas_*`, `lemma_wordforms_*` |
 | [`dict/grammar/`](dict/grammar/README.md) | Which grammemes make up grammatical sets, and which parts of speech do the sets apply to? | `grams.csv`, `gramsets.csv`, `gramset_pos.csv`, `parts_of_speech.csv` |
@@ -61,7 +62,7 @@ The full datasets are UTF-8 CSV files compressed with Zstandard:
 *.csv.zst
 ```
 
-Only small reference tables are stored uncompressed: `dict/grammar/*.csv` and the files in `semantics/`.
+Only small reference tables are stored uncompressed: `dict/grammar/*.csv`, `corpus/reference/*.csv`, and the files in `semantics/`.
 
 The repository also provides small uncompressed CSV examples in `samples/` directories for quick inspection and schema testing.
 
@@ -85,7 +86,7 @@ meanings = pd.read_csv(
 
 CSV fields may contain commas, quotation marks, and line-like punctuation. Use a standard CSV parser; do not split lines manually on commas.
 
-In `dict/morphology/` and `dict/grammar/`, SQL `NULL` is written as `\N`, and an empty cell means an empty string. The reading rule is described in the [dictionary morphology README](dict/morphology/README.md#empty-values). Other files do not use this marker.
+In `dict/morphology/`, `dict/grammar/`, and `corpus/reference/`, SQL `NULL` is represented as `\N`, while an empty cell represents an empty string. See the respective directory READMEs for reading conventions. Do not automatically apply this convention to other repository files.
 
 ## Data policy
 
@@ -104,10 +105,15 @@ corpus/
   sentences_<lang>.csv    sentence_id, text_id
        │
        ▼
-  words_<lang>.csv        word_id, sentence_id
+  words_<lang>.csv        word_id, sentence_id, w_id, s_id
        │
        ▼
   candidate_analyses_<lang>.csv    word_id, wordform_id, gramset_id
+
+corpus/reference/
+  corpora.csv             corpus_id      ← texts.corpus_id
+  genres.csv              genre_id       ← texts.genre_id
+  dialects.csv            dialect_code   ← texts.dialect_code
 
 
 dict/
@@ -151,7 +157,7 @@ identify the license as CC BY 4.0, and indicate whether you modified the data.
 
 Suggested attribution:
 "VepKar — The Open Corpus of the Veps and Karelian Languages;
-dictorpus-data, version v2026.11; licensed under CC BY 4.0."
+dictorpus-data, version v2026.13; licensed under CC BY 4.0."
 
 ## Citation
 

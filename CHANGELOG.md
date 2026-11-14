@@ -1,5 +1,44 @@
 🌐 [Читать на русском](CHANGELOG.ru.md)
 
+## v2026.13 — 2026-11-14
+
+- Added the `corpus/reference/` directory with uncompressed reference tables
+  for corpora/subcorpora, genres, and dialects: `corpora.csv` (13 rows),
+  `genres.csv` (75), `dialects.csv` (58). They explain `corpus_id`,
+  `genre_id`, and `dialect_code` in `texts_*`. SQL `NULL` is written
+  as `\N`, as in `dict/morphology/` and `dict/grammar/`.
+- **Schema change:** added the `year_published` column at the end of
+  `corpus/texts_*.csv.zst` — the publication year from the linked source
+  (`sources.year`). It does not replace `year_recorded`.
+- **Schema change:** added the `w_id` and `s_id` columns after `word`
+  at the end of `corpus/words_*.csv.zst` — identifiers of the `<w id>`
+  and `<s id>` elements in the original XML markup. Loaders that check
+  the exact set of columns must be updated.
+- Updated the corpus: `krl` +5 texts, +149 sentences, +1,709 words,
+  +9,275 candidates; `olo` +7 texts, +177 sentences, +2,198 words,
+  +24,204 candidates; `vep` +8,685 candidates; `lud` +955 candidates.
+  Experts changed `relevance` for some existing candidates
+  (`vep` 268, `lud` 129). Two `olo` sentences received XML markup.
+- In existing `words_*` rows, the `word` field was brought to its
+  normalized form (lowercase, no apostrophes): `vep` 1,796, `olo` 998,
+  `krl` 758, `lud` 67 rows.
+- In `candidate_analyses_*`, all rows with an empty `gramset` now have
+  `gramset_id = 0` (13,853 rows); the value `7` in `lud` no longer occurs.
+- Updated the dictionary: `meanings` `krl` +3, `lud` +10; `examples`
+  `vep` +83, `lud` +103, `olo` +27; `lemmas` `krl` +3, `lud` +7;
+  `lemma_wordforms` `krl` +100, `lud` +287, `olo` −1, `vep` −3 links;
+  `affix` was recalculated for some links. `id` numbering changed in
+  `meanings_krl`, `meanings_lud`, `examples_lud`, and `examples_olo`.
+- In `dict/synonyms/synset_candidates_olo.csv.zst`, 19 synset–candidate
+  pairs were replaced; the total number of rows is unchanged (523).
+- Documentation: added `corpus/reference/README*`; the corpus README now
+  describes the new columns and the link between words and XML; updated
+  the figures for candidates without `gramset` and for `gramset_id`
+  in dictionary morphology.
+- Samples: added the new columns to `corpus/samples/texts_krl.csv`
+  and `words_krl.csv`.
+- Source: VepKar / Dictorpus database export.
+
 ## v2026.11 — 2026-11-06
 
 - Added the `dict/morphology/` directory: `lemmas_*`, `lemma_wordforms_*`

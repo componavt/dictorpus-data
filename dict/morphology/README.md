@@ -121,6 +121,6 @@ The join may return several rows per candidate because of multiple lemmas or dia
 
 ## Notes on the current export
 
-- `gramset_id = 0` occurs in 12 rows (`vep`, `olo`, `lud`). This value is not present in `gramsets.csv`.
+- `gramset_id = \N` occurs in 2,322 rows, almost all of them in `vep` (2,310). The current export has no rows with `gramset_id = 0`.
 - `lemma_wordforms_vep` contains 4 fully identical rows. They are preserved as in the source.
 - `dialect_code` does not always start with the file's language code: for example, `vep` has rows with `krl-*`, and `krl` has the prefix `klr-`.

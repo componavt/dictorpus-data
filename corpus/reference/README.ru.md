@@ -1,4 +1,4 @@
-[Read this in English](README.md)
+🌐 [Read this in English](README.md)
 
 # Справочники корпусных метаданных
 

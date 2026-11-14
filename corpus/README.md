@@ -22,6 +22,8 @@ wordform_id + gramset
 
 The numeric `gramset_id` links a candidate to the [`../dict/grammar/gramsets.csv`](../dict/grammar/README.md) reference table and to the [`../dict/morphology/`](../dict/morphology/README.md) dictionary morphology.
 
+The values of `corpus_id`, `genre_id`, and `dialect_code` in text metadata are explained by the [`reference/`](reference/README.md) tables: `corpora.csv`, `genres.csv`, and `dialects.csv`.
+
 ## Storage format
 
 The full VepKar source data are stored as individually compressed UTF-8 CSV files in Zstandard format:
@@ -82,7 +84,7 @@ sentences_<lang>.csv
        │
        ▼
 words_<lang>.csv
-    word_id, sentence_id, word_number, word
+    word_id, sentence_id, word_number, word, w_id, s_id
        │
        ▼
 candidate_analyses_<lang>.csv
@@ -135,9 +137,9 @@ Derived fields such as candidate count, ambiguity status, gold label, train/dev/
 
 ### Candidates without a grammatical set
 
-In 13,883 rows, `gramset` is empty. These rows have `gramset_id = 0`, and 27 rows in `lud` have `gramset_id = 7`. These values are not present in `gramsets.csv`, so an inner join with the reference table will lose such rows. They include rows with `relevance = 2`.
+In 13,853 rows, `gramset` is empty, and all of them have `gramset_id = 0` (88 in `vep`, 487 in `krl`, 13,099 in `olo`, 179 in `lud`). The value `0` is not present in `gramsets.csv`, so an inner join with the reference table will lose such rows. They include rows with `relevance = 2`.
 
-As a result, the pair `wordform_id + gramset` is not always unique within a word: in `lud`, candidates with an empty `gramset` coincide for two words. The triple `word_id + wordform_id + gramset_id` is unique in all files.
+The triple `word_id + wordform_id + gramset_id` is unique in all files.
 
 ## `sentences_*.csv`
 
@@ -170,18 +172,24 @@ Each row describes metadata for one VepKar text.
 Example:
 
 ```csv
-text_id,corpus_id,dialect_code,genre_id,year_recorded
-1566,1,lud-svt,11,1969
-1601,3,,,2018
+text_id,corpus_id,dialect_code,genre_id,year_recorded,year_published
+1566,1,lud-svt,11,1969,1978
+1601,3,,,2018,
+2042,1|4,krl-tlm,12,1960,2016
 ```
 
 | Column | Type | Description |
 |---|---|---|
 | `text_id` | integer | Identifier of the VepKar text. It joins this table to `sentences_*.csv`. |
-| `corpus_id` | integer | Identifier of the corpus or subcorpus associated with the text. |
-| `dialect_code` | string or empty | VepKar dialect code associated with the text. Multiple codes, if present, are separated by `|`. An empty value means that no dialect code is available in the export. |
-| `genre_id` | integer or empty | Identifier of the genre associated with the text. Multiple identifiers, if present, are separated by `|`. An empty value means that no genre identifier is available in the export. |
-| `year_recorded` | integer or empty | Year in which the source material was recorded, when known. It is empty when the recording year is unavailable. |
+| `corpus_id` | string or empty | One or more identifiers in [`reference/corpora.csv`](reference/README.md#corporacsv), separated by `\|`. An empty value means that no corpus/subcorpus is available in the export. |
+| `dialect_code` | string or empty | One or more codes in [`reference/dialects.csv`](reference/README.md#dialectscsv), separated by `\|`. An empty value means that no dialect code is available in the export. |
+| `genre_id` | string or empty | One or more identifiers in [`reference/genres.csv`](reference/README.md#genrescsv), separated by `\|`. An empty value means that no genre annotation is available in the export. |
+| `year_recorded` | integer or empty | Year in which the source material was recorded; exported from `events.date`. |
+| `year_published` | integer or empty | Publication year recorded in the linked source; exported from `sources.year`. |
+
+`year_recorded` and `year_published` are independent fields: neither is used to fill missing values in the other. Both are exported as stored, without type conversion; in the current export, all nonempty values are four-digit years. An empty cell indicates an unavailable value; these fields do not use the `\N` marker.
+
+The rules for joining multi-valued fields to the reference tables are described in the [reference tables README](reference/README.md#joining-to-text-metadata).
 
 Text metadata may be used as optional features in experiments, especially for evaluating whether dialect, genre, corpus membership, or recording year improve morphological candidate ranking.
 
@@ -192,11 +200,11 @@ Each row represents one word recognized by VepKar in one corpus sentence.
 Example:
 
 ```csv
-word_id,sentence_id,word_number,word
-3675348,41509,1,kouz
-3675349,41509,2,minä
-3675350,41509,3,pеlduoižis
-3675351,41509,4,elin
+word_id,sentence_id,word_number,word,w_id,s_id
+3675348,41509,1,kouz,1,1
+3675349,41509,2,minä,2,1
+3675350,41509,3,pеlduoižis,3,1
+3675351,41509,4,elin,4,1
 ```
 
 | Column | Type | Description |
@@ -205,6 +213,8 @@ word_id,sentence_id,word_number,word
 | `sentence_id` | integer | Identifier of the containing sentence. It joins the word to `sentences_*.csv`. |
 | `word_number` | integer | Position of the word within the sentence. Sort words by this field to reconstruct the normalized word sequence. |
 | `word` | string | Normalized VepKar word form used for search and morphological matching. Normalization includes lowercasing, removal of apostrophe-like softening marks, and context-dependent normalization of `w` according to vowel harmony. |
+| `w_id` | integer | Identifier of the `<w id="…">` element in the text XML; exported from `words.w_id`. |
+| `s_id` | integer | Identifier of the `<s id="…">` element in the text XML; exported from `words.s_id`. |
 
 ### Word normalization
 
@@ -218,7 +228,30 @@ words.word
     → normalized form used for corpus matching and morphology
 ```
 
-The normalized `word` form is the primary input form for morphological models in this project. Original surface forms remain recoverable from `sentence_xml` when a future experiment requires them.
+The normalized `word` form is the primary input form for morphological models in this project. Original surface forms remain recoverable from `sentence_xml` via `w_id` (see below).
+
+### Linking to the Original XML
+
+```text
+word_id      -> words.id          database record
+sentence_id  -> sentences.id      database record
+
+w_id         -> <w id="...">      element in the text XML
+s_id         -> <s id="...">      element in the text XML
+```
+
+`w_id` and `s_id` number elements within the XML of a single text, so they are not globally unique. `word_number` specifies the position within a sentence and is not a substitute for `w_id`.
+
+To recover the original spelling of a word:
+
+1. Locate the sentence by `sentence_id` in `sentences_*.csv`.
+2. Check that the `<s id="…">` attribute in `sentence_xml` equals `s_id`.
+3. Locate the `<w>` element in the sentence whose `id` equals `w_id`.
+4. Read the element's text with an XML parser.
+
+Do not look up words in the XML by the normalized `word`: the spelling may differ, and identical words may occur more than once in a sentence.
+
+`w_id` and `s_id` are exported from the database without recalculation. In the current export, both fields are filled in every row. For words whose sentence is present in `sentences_*.csv`, a few matches fail: in `vep`, 124 words have no `<w>` with that `w_id`; in `olo`, 4 words have an `s_id` that differs from `<s id>`, and 6 words have no matching `w_id`. Such words are not removed from the export.
 
 ### Words without a sentence
 
